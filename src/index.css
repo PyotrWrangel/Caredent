@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+    --color-blue-100: oklch(22.748% 0.15766 264.073);
+}
+
+body {
+    background-color: oklch(22.748% 0.15766 264.073);
+}
+
+.section-1-image {
+    margin: auto !important;
+}
+
+.text-self-logo {
+    font-style:normal;
+    padding-left: 10px;
+    font-size: 2.5em;
+}
