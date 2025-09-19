@@ -3,6 +3,8 @@ import Information from "./CardInformation";
 import Experts from "./Experts";
 import { useState, useEffect } from "react";
 import HeroImage from "./HeroImage";
+
+
 //importiamo il database
 import { db } from "../../../firebaseConfig";
 
@@ -102,8 +104,8 @@ function Main() {
           </div>
         </div>
       </section>
-      <section className=" bg-indigo-100 -mt-44 relative">
-        <div className=" mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
+      <section className=" bg-indigo-100 lg:-mt-44 lg:relative">
+        <div className="flex items-center justify-center  mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
           {stats.map((item, idx) => (
             <Information
               key={idx}
@@ -113,7 +115,7 @@ function Main() {
             ></Information>
           ))}
         </div>
-        <div className="flex">
+        <div>
           {experts.map((expert) => (
             <Experts
               key={expert.id}
