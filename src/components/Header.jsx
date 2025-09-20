@@ -2,10 +2,10 @@ import { useState } from "react";
 
 function Header() {
 
-  const [form, setForm] = useState(false);
+  const [generateForm, setGenerateForm] = useState(false);
 
   function handleClick() {
-    setForm(true);
+    setGenerateForm(true);
   }
 
     return (
@@ -34,7 +34,7 @@ function Header() {
     </div>
     <div className="hidden lg:flex lg:flex-1 lg:justify-end  ">
       <button onClick={handleClick} type="button" className="text-xl font-semibold text-white border border-solid border-white rounded-full py-3 px-8">Contact us</button>
-      {form && (
+      {generateForm && (
         <form className="mt-4">
           <label for="email"> Enter email: </label>
             <input type="email" name="email"></input>
