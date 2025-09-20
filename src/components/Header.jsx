@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-function Header() {
+function Header({handleForm}) {
 
-  const [form, setForm] = useState(false);
 
-  function handleClick() {
-    setForm(true);
-  }
 
     return (
         <>
@@ -33,17 +29,8 @@ function Header() {
       <a href="#" className="text-xl font-semibold text-white">Insurance</a>
     </div>
     <div className="hidden lg:flex lg:flex-1 lg:justify-end  ">
-      <button onClick={handleClick} type="button" className="text-xl font-semibold text-white border border-solid border-white rounded-full py-3 px-8">Contact us</button>
-      {form && (
-        <form className="mt-4">
-          <label for="email"> Enter email: </label>
-            <input type="email" name="email"></input>
-          <label for="password">Enter password: </label>
-        
-          <input type="password" name="password"></input>
-          <button type="submit" name="login"></button>
-        </form>
-      )}
+      <button onClick={handleForm} type="button" className="text-xl font-semibold text-white border border-solid border-white rounded-full py-3 px-8">Login</button>
+
     </div>
   </nav>
   </header>
