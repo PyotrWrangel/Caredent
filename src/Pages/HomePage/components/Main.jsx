@@ -3,13 +3,6 @@ import Information from "./CardInformation";
 import Experts from "./Experts";
 import { useState, useEffect } from "react";
 import HeroImage from "./HeroImage";
-import Form from "./Form";
-
-//importiamo il database
-// import { db } from "../../../firebaseConfig";
-
-//collezione dei dati
-// import { getDocs, collection } from "firebase/firestore";
 
 function Main() {
   const stats = [
@@ -46,28 +39,6 @@ function Main() {
   ];
 
   const [experts, setExperts] = useState([]);
-
-
-
-
-  // const ExpertCollectionRef = collection(db, "experts");
-
-  //CRUD
-  //READ
-
-  // useEffect(() => {
-  //   const getExpert = async () => {
-  //     try {
-  //       const data = await getDocs(ExpertCollectionRef);
-  //       // console.log(data);
-  //       setExperts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   getExpert();
-  // }, []);
 
   return (
     <>
