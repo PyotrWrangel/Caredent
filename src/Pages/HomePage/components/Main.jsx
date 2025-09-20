@@ -3,7 +3,7 @@ import Information from "./CardInformation";
 import Experts from "./Experts";
 import { useState, useEffect } from "react";
 import HeroImage from "./HeroImage";
-
+import Form from "./Form";
 
 //importiamo il database
 // import { db } from "../../../firebaseConfig";
@@ -46,6 +46,9 @@ function Main() {
   ];
 
   const [experts, setExperts] = useState([]);
+
+
+
 
   // const ExpertCollectionRef = collection(db, "experts");
 
