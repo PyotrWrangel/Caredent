@@ -1,13 +1,6 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Header({handleForm}) {
-
-  const [generateForm, setGenerateForm] = useState(false);
-
-  function handleClick() {
-    setGenerateForm(true);
-  }
-
+function Header({onOpen}) {
 
     return (
         <>
@@ -27,15 +20,17 @@ function Header({handleForm}) {
       </button>
     </div>
     <div className="hidden lg:flex lg:gap-x-12">
+      <nav className="lg:flex lg:gap-x-12">
       <a href="#" className="text-xl font-semibold text-white">Home</a>
-      <a href="#" className="text-xl font-semibold text-white">About us</a>
+      <Link to="/about" className="text-xl font-semibold text-white">About us</Link>
       <a href="#" className="text-xl font-semibold text-white">Out Services</a>
       <a href="#" className="text-xl font-semibold text-white">Specialist</a>
       <a href="#" className="text-xl font-semibold text-white">Insurance</a>
+      </nav>
     </div>
     <div className="hidden lg:flex lg:flex-1 lg:justify-end  ">
 
-      <button onClick={handleForm} type="button" className="text-xl font-semibold text-white border border-solid border-white rounded-full py-3 px-8">Login</button>
+      <button onClick={() => {onOpen();}} type="button" className="text-xl font-semibold text-white border border-solid border-white rounded-full py-3 px-8">Login</button>
     </div>
   </nav>
   </header>
