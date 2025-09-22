@@ -1,7 +1,7 @@
 import hero1Image from "../../../assets/puttanaDentale.jpeg";
 import Information from "./CardInformation";
 import Experts from "./Experts";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HeroImage from "./HeroImage";
 
 function Main() {
@@ -38,7 +38,7 @@ function Main() {
     "Visite diagnostiche con intelligenza artificiale",
   ];
 
-  const [experts, setExperts] = useState([]);
+  const [experts] = useState([]);
 
   return (
     <>
