@@ -5,7 +5,7 @@ function Header({onOpen}) {
     return (
         <>
         <header className="bg-blue-100">
-  <nav className="mx-auto flex max-w-[calc(100vw-10cm)] px-[5cm] items-center justify-between p-6 lg:px-8 text-white" aria-label="Global">
+  <nav className="mx-auto flex flex-col 2xl:flex-row max-w-[calc(100vw-10cm)] px-[5cm] items-center 2xl:items-start justify-between p-6 lg:px-8 text-white" aria-label="Global">
     <div className="flex lg:flex-1">
       <a href="#" className="flex items-center -m-1.5 p-1.5 pb-4">   {/* rendo a un contenitore flex */}
         <img className="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" />
@@ -21,11 +21,11 @@ function Header({onOpen}) {
     </div>
     <div className="hidden lg:flex lg:gap-x-12">
       <nav className="lg:flex lg:gap-x-12">
-      <a href="#" className="text-xl font-semibold text-white">Home</a>
+      <Link to="#" className="text-xl font-semibold text-white">Home</Link>
       <Link to="/about" className="text-xl font-semibold text-white">About us</Link>
-      <a href="#" className="text-xl font-semibold text-white">Out Services</a>
-      <a href="#" className="text-xl font-semibold text-white">Specialist</a>
-      <a href="#" className="text-xl font-semibold text-white">Insurance</a>
+      <Link to="/services" className="text-xl font-semibold text-white">Out Services</Link>
+      <Link to="/specialists" className="text-xl font-semibold text-white">Specialist</Link>
+      <Link to="/insurance" className="text-xl font-semibold text-white">Insurance</Link>
       </nav>
     </div>
     <div className="hidden lg:flex lg:flex-1 lg:justify-end  ">
