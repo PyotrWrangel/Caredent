@@ -10,18 +10,13 @@ function Homepage() {
 
   const [form, setForm] = useState(false);
 
-  function handleForm() {
-    setForm(true);
-    document.getElementById("form_modal").showModal();
-  }
-
     return (
         <>
-      <dialog id="form_modal" className={` fixed inset-0 bg-transparent bg-black bg-opacity-50 transition-opacity duration-500 modal items-center m-auto ${form ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-      {form && ( <Form></Form>
-      )}
-      </dialog>
-        <Header handleForm={handleForm}></Header>
+      <div className={` fixed inset-0 transition-opacity duration-500 items-center justify-center m-auto ${form ? "opacity-100 bg-black bg-opacity-20 z-50" : "opacity-0 pointer-events-none"}`}>
+      {form && <Form onClose={() => setForm(false)} />}
+      </div>
+
+        <Header onOpen={() => setForm(true)}></Header>
         <Main></Main>
         <Footer></Footer>
         </>
