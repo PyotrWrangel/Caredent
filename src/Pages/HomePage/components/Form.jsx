@@ -1,7 +1,40 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 function Form({ onClose }) {
+
+  const[formData, setFormData] = useState ({
+    email: "",
+    password: "",
+  });
+
+  const[message, setMessage] = useState ("");
+
+  function handlechange(e) {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    fetch ('http://localhost/CaredentBackEnd/BackEnd/querys/login.php', {
+      method: 'POST',
+      body: fd,
+    })
+    .then((response) => response.json())
+    .then(data => {
+
+
+    })
+    .catch(err => console.error("errpre fetch login", err))
+  }
+
+
   return (
     <>
         <div className="rounded-full modal-box flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-[600px] md:w-[500px] lg:py-0">
@@ -10,7 +43,7 @@ function Form({ onClose }) {
               <h2 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h2>
-              <form className="space-y-4 md:space-y-6" action="login.php">
+              <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="login.php">
                 <div>
                   <label
                     htmlFor="email"
@@ -22,6 +55,8 @@ function Form({ onClose }) {
                     type="email"
                     name="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handlechange}
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
                     required=""
@@ -38,6 +73,8 @@ function Form({ onClose }) {
                     type="password"
                     name="password"
                     id="password"
+                    value={formData.password}
+                    onChange={handlechange}
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
