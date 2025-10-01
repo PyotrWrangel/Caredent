@@ -1,4 +1,4 @@
-import hero1Image from "../../../assets/puttanaDentale.jpeg";
+import hero1Image from "../../../assets/dentalImage.jpeg";
 import Information from "./CardInformation";
 import Experts from "./Experts";
 import { useState } from "react";
