@@ -7,6 +7,7 @@ import Insurance from './Pages/InsurancePage/Insurance'
 import Services from './Pages/ServicesPage/Service'
 import Specialists from './Pages/SpecialistsPage/Specialists'
 import Working from './assets/workingAdvisor/working'
+import Dashboard from './Pages/userDashboard/Dashboard'
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/services" element={<Working title="Pagina servizi in lavorazione" />} />
         <Route path="/specialists" element={<Working title="Pagina specialisti in lavorazione" />} /> 
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       </BrowserRouter>
     </>
