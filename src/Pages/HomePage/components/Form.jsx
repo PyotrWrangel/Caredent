@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Form({ onClose }) {
@@ -19,20 +19,29 @@ function Form({ onClose }) {
     });
   }
 
+  const navigate = useNavigate();
+
   function handleLogin(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
     fetch ('http://localhost/CaredentBackEnd/BackEnd/querys/login.php', {
       method: 'POST',
       body: fd,
+      credentials: "include"
     })
-    .then((response) => response.json())
+    .then((data) => data.json())
     .then(data => {
+      console.log(data.response);
+      if(data.response == 1) {
+      navigate('dashboard')
+      } else {
+        console.log("dati errati!");
+      }
+        })
 
+ .catch(err => console.error("errore fetch login", err))
+    }
 
-    })
-    .catch(err => console.error("errpre fetch login", err))
-  }
 
 
   return (
@@ -75,7 +84,7 @@ function Form({ onClose }) {
                     id="password"
                     value={formData.password}
                     onChange={handlechange}
-                    placeholder="••••••••"
+                    placeholder=""
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                   />
@@ -128,4 +137,17 @@ function Form({ onClose }) {
     </>
   );
 }
+
 export default Form;
+
+
+    // .then(res => res.text())
+    // .then(txt => {
+    //   console.log("Risposta: " ,txt);
+    //   try {
+    //     const data = JSON.parse(txt);
+    //     console.log(data);
+    //   } catch (err) {
+    //     console.error("errore di parsing" , err);
+     //   }
+    //  });
